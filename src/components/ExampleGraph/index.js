@@ -47,53 +47,42 @@ class ExampleGraph extends Component {
 
     onClickNode = (nodeId) => {
         const valueToPrint = `Clicked node ${nodeId}`
-        this.setState((state, props) => ({
-            debugConsole: state.debugConsole + "\n" + valueToPrint
-        }))
-        console.log(valueToPrint);
+        this.onGraphChange(valueToPrint)
     };
 
     onMouseOutLink = (source, target) => {
         const valueToPrint = `Mouse out link between ${source} and ${target}`
-        this.setState((state, props) => ({
-            debugConsole: state.debugConsole + "\n" + valueToPrint
-        }))
-        console.log(valueToPrint);
+        this.onGraphChange(valueToPrint)
     };
 
     onMouseOverNode = (nodeId) => {
         const valueToPrint = `Mouse over node ${nodeId}`
-        this.setState((state, props) => ({
-            debugConsole: state.debugConsole + "\n" + valueToPrint
-        }))
-        console.log(valueToPrint);
+        this.onGraphChange(valueToPrint)
     };
 
     onMouseOutNode = (nodeId) => {
         const valueToPrint = `Mouse out node ${nodeId}`
-        this.setState((state, props) => ({
-            debugConsole: state.debugConsole + "\n" + valueToPrint
-        }))
-        console.log(valueToPrint);
+        this.onGraphChange(valueToPrint)
     };
 
     onClickLink = (source, target) => {
         const valueToPrint = `Clicked link between ${source} and ${target}`
-        this.setState((state, props) => ({
-            debugConsole: state.debugConsole + "\n" + valueToPrint
-        }))
-        console.log(valueToPrint);
+        this.onGraphChange(valueToPrint)
     };
 
     onMouseOverLink = (source, target) => {
         const valueToPrint = `Mouse over in link between ${source} and ${target}`
-        this.setState((state, props) => ({
+        this.onGraphChange(valueToPrint)
+    };
+
+    onGraphChange = (valueToPrint) => {
+        this.setState((state) => ({
             debugConsole: state.debugConsole + "\n" + valueToPrint
         }))
         console.log(valueToPrint);
-    };
+    }
 
-    handleInputChange = (event)=> {
+    handleInputChange = (event) => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -121,11 +110,13 @@ class ExampleGraph extends Component {
                     name="isGoing"
                     type="checkbox"
                     checked={this.state.debug}
-                    onChange={this.handleInputChange} />
+                    onChange={this.handleInputChange}
+                />
                 {this.state.debug && <textarea
                     value={this.state.debugConsole}
                     cols="80"
                     rows="10"
+                    onChange="null"
                 />}
 
             </div>
