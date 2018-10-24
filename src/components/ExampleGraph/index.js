@@ -10,31 +10,20 @@ import { Graph } from 'react-d3-graph';
 
 // the graph configuration, you only need to pass down properties
 // that you want to override, otherwise default ones will be used
+// https://goodguydaniel.com/react-d3-graph/sandbox/index.html
 const myConfig = {
     nodeHighlightBehavior: true,
+    linkHighlightBehavior: true,
     node: {
         color: 'lightgreen',
         size: 120,
-        highlightStrokeColor: 'blue'
+        highlightStrokeColor: '#777777'
     },
     link: {
-        highlightColor: 'lightblue'
+        strokeWidth: 2,
+        highlightColor: '#ff0000'
     }
 };
-
-// graph event callbacks
-// const onClickNode = function (nodeId) {
-//     // this.setState({
-//     //     debugConsole: (`Clicked node ${nodeId}`)
-//     // })
-//     console.log(`Clicked node ${nodeId}`);
-// };
-
-
-// const data = {
-//     nodes: [{ id: 'Harry' }, { id: 'Sally' }, { id: 'Alice' }],
-//     links: [{ source: 'Harry', target: 'Sally' }, { source: 'Harry', target: 'Alice' }]
-// };
 class ExampleGraph extends Component {
     constructor(props) {
         super(props)
